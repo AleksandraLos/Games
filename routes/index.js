@@ -7,16 +7,16 @@ const db = req.app.locals.db;
 
 const sql = `
     SELECT id,
-           game,
+           name,
            player,
-           score_date,
-           points
+           date,
+           score
       FROM users
   `;
   const result = await db.query(sql);
 
 res.render('index', { title: 'Highscore',
-allGames: result.rows });
+users: result.rows });
 });
 
 module.exports = router;
