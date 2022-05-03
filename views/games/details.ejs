@@ -1,0 +1,24 @@
+<section>
+  
+    <div class="container">
+      <div class="row">
+        
+      ga<div class="points col-sm"><%= game.genre %></div>
+      </div>
+      <div class="row">
+        <div class="player_date col-sm">
+          <%= game.description %>,<%= game.release_year %>
+        </div>
+       
+  <% highscores.forEach(score => { %>
+    <div class="container">
+      <div class="row">
+        <div class="game col-sm"><%= user.game %></div>
+        <div class="points col-sm"><%= user.player %></div>
+      </div>
+      <div class="row">
+        <div class="player_date col-sm">
+          <%= user.points %>,<%= user.score_date %>
+        </div>
+  <% }) 
+</section>
