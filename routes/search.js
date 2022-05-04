@@ -15,7 +15,6 @@ router.get('/', async(req, res) => {
   `;
 
   const result = await db.query(sql, [searchTerm]);
-// const traffar = result.rows>1?"träffar":"träff";
 
   res.render('search', {
     title: 'Sökresultat',

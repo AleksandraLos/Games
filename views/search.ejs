@@ -1,10 +1,10 @@
 <section class="search-results mb-4">
     <div class="text-center mb-4">
-      <h2>Found <%= games.length %> <%= matches %> på "<%= searchTerm %>"</h2>
+      <h2>Found '<%= games.length %>' matches based on "<%= searchTerm %>"</h2>
     </div>
     <div class="row">
       <% games.forEach(game => {  %>
-        <%- include("shared/partials/score-card-with-image", { game }) %>
+        <%- include("shared/partials/game-card.ejs", { game }) %>
       <% }) %>
         </div>
     </div>
