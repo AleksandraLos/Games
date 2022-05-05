@@ -1,3 +1,10 @@
 var express = require('express');
-const { redirect } = require('express/lib/response');
 var router = express.Router();
+
+
+router.get('/', (req, res) => {
+
+    res.render('games/router', {title:'Sök spel'})
+    });
+
+    module.exports = router;
