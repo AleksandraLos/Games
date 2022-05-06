@@ -1,4 +1,4 @@
-<form action="">
+<!-- <form action="">
     <div>
     <input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly>
     <input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly>
@@ -43,4 +43,65 @@
         <label for="release-year">Release year </label>
       </div>
       <button type="submit" class="btn btn-primary">Add</button>
+</form> -->
+<h1 style="text-align: center">New game</h1>
+<div class="d-flex justify-content-center">
+<div style="width: 50%;">
+<form method="post">
+    <div class="row mb-3">
+        <div class="col">
+            <label style="margin-left: 5px">Title</label>
+            <input
+            type="text" 
+            placeholder="Title"
+            name="game_name"
+            class="form-control">
+        </div>
+    </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label style="margin-left: 5px">Description</label>
+                <textarea
+                type="text" 
+                placeholder="Description"
+                name="description"
+                class="form-control"> 
+            </textarea>
+            </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label style="margin-left: 5px">Image Url</label>
+            <input
+            type="text" 
+            placeholder="Image url"
+            name="image_url"
+            class="form-control">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label style="margin-left: 10px">Genre</label>
+            <select class="form-control" name="genre" style="margin-bottom: 20px">
+                    <option>Puzzle</option>
+                    <option>Shoot em up</option>
+                    <option>MMO</option>
+                    <option>Fantasy</option>
+                    <option>Horror</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label style="margin-left: 5px">Release year</label>
+            <input
+            type="text" 
+            placeholder="Release year"
+            name="release_year"
+            class="form-control">
+        </div>
+    </div>
+    <button style="width: 10%;" class="btn btn-primary">Add</button>
 </form>
+</div>
+</div>

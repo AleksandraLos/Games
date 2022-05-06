@@ -1,1 +1,28 @@
 <h1>här kommer games view</h1>
+
+<div style="display: flex; justify-content: space-between;">
+    <h1 style="margin-left: 100px"></h1>
+    <a href="/admin/new" class="btn btn-primary" style="margin-right: 90px;">Add game</a>
+    </div>
+    <div style="display: flex; justify-content: center">
+      <table style="width: 90%" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Release year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% games.forEach(game => { %>
+          <tr>
+            <td><%= game.id %></td>
+            <td><%= game.game_name %></td>
+            <td><%= game.genre %></td>
+            <td><%= game.release_year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>

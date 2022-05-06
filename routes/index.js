@@ -6,17 +6,16 @@ router.get('/',async function(req, res) {
 const db = req.app.locals.db;
 
 const sql = `
-    SELECT id,
-           name,
-           player,
-           date,
-           score
-      FROM users
+    SELECT * FROM games
+    INNER JOIN score
+    ON score.game_id = games.id
   `;
   const result = await db.query(sql);
 
+  let games = result.rows;
+
 res.render('index', { title: 'Highscore',
-users: result.rows });
+games});
 });
 
 module.exports = router;

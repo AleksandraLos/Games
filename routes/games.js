@@ -7,15 +7,11 @@ router.get('/:urlSlug', async function (req, res) {
     // hämta ut urlSlug
     const urlSlug = req.params.urlSlug;
     const db = req.app.locals.db;
+
     const sql = `
-    SELECT id,
-          game_name,
-          genre,
-          description,
-          release_year,
-          image_url,
-          url_slug
-      FROM games
+    SELECT * FROM games
+    INNER JOIN score
+    ON score.game_id = games.id
       WHERE url_slug = $1
   `;
 

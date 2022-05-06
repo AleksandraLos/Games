@@ -12,13 +12,15 @@
         UNIQUE (url_slug)
 );
 
-  CREATE TABLE users (
+  CREATE TABLE score (
         id INTEGER GENERATED ALWAYS AS IDENTITY,
-        name VARCHAR(50) NOT NULL,
         player VARCHAR(100) NOT NULL,
         date DATE NOT NULL,
         score INTEGER NOT NULL,
-        PRIMARY KEY (id)
+        game_id INTEGER NOT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY(game_id)
+        REFERENCES games(id)
 );
 
   INSERT INTO games (
@@ -69,15 +71,15 @@
 	    'asteroid'
 )
 
- INSERT INTO users (
-        name,
+ INSERT INTO score (
 		    player,
         date,
-        score
+        score,
+        game_id
 )
   VALUES 
-    ('Tetris','Johan Andersson','2020-04-08',45678),
-    ('Pac-Man','Sven Melander','2005-04-12','56565'),
-    ('Donkey Kong','Anna Vikander','2000-02-02','98989'),
-    ('Cabal','Per Svensson','2022-02-02','12123'),
-    ('Asteroid','Jessica Frisk','2022-02-02','76543')
+    ('Johan Andersson','2020-04-08','45678',1),
+    ('Sven Melander','2005-04-12','56565',2),
+    ('Anna Vikander','2000-02-02','98989',3),
+    ('Per Svensson','2022-02-02','12123',4),
+    ('Jessica Frisk','2022-02-02','76543',5)

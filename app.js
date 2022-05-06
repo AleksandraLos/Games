@@ -5,14 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressLayouts = require("express-ejs-layouts");
 const { Pool } = require("pg");
-const session = require('express-session');
+
 
 var indexRouter = require('./routes/index');
 var gamesRouter = require('./routes/games')
-var searchRouter = require('./routes/search');
+searchRouter = require('./routes/search');
 var gamesAdminRouter = require('./routes/admin/games');
-var newRouter = require('./routes/admin/new');
-var newScore = require('./routes/admin/score');
+// var newRouter = require('./routes/admin/new');
+// var newScore = require('./routes/admin/score');
 
 
 
@@ -38,14 +38,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use(session({ secret: 'secretpassword' }));
 
 app.use('/', indexRouter);
 app.use('/games',gamesRouter);
 app.use('/search', searchRouter);
-app.use('/admin/games', gamesAdminRouter);
-app.use('/admin/games/new', newRouter);
-app.use('/admin/score/new', newScore);
+app.use('/admin', gamesAdminRouter);
+// app.use('/admin/games/new', newRouter);
+// app.use('/admin/score/new', newScore);
 
 
 // catch 404 and forward to error handler

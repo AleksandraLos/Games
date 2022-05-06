@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
     <h1>New higscore </h1>
 <form action="post">
     <select class="form-select" aria-label="Default select example">
@@ -21,4 +21,53 @@
 </div>
 <button></button>
 </form>
-</section>
+</section> -->
+<h1 style="text-align: center">New game</h1>
+<div class="d-flex justify-content-center">
+<div style="width: 50%;">
+<form method="post">
+    <div class="row mb-3">
+        <div class="col">
+            <label style="margin-left: 10px">Game</label>
+            <select class="form-control" name="game_name" style="margin-bottom: 20px">
+                    <% games.forEach(game => { %>
+                        <option><%= game.game_name %></option>
+                    <% }) %>
+            </select>
+        </div>
+    </div>
+    <input type="hidden" name="game_id">
+    <div class="row mb-3">
+        <div class="col">
+            <label style="margin-left: 5px">Player</label>
+            <input
+            type="text" 
+            placeholder="Player"
+            name="player"
+            class="form-control">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label style="margin-left: 5px">Date</label>
+            <input
+            type="text" 
+            placeholder="Date"
+            name="date"
+            class="form-control">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label style="margin-left: 5px">Score</label>
+            <input
+            type="text" 
+            placeholder="Score"
+            name="score"
+            class="form-control">
+        </div>
+    </div>
+    <button style="width: 10%;" class="btn btn-primary">Add</button>
+</form>
+</div>
+</div>

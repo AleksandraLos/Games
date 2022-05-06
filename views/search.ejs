@@ -2,10 +2,15 @@
     <div class="text-center mb-4">
       <h2>Found '<%= games.length %>' matches based on "<%= searchTerm %>"</h2>
     </div>
+   
     <div class="row">
+     
       <% games.forEach(game => {  %>
+        <a href="/games/<%= game.url_slug %>">
         <%- include("shared/partials/game-card.ejs", { game }) %>
+      </a>
       <% }) %>
+   
         </div>
     </div>
   </section>
