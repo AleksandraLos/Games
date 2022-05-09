@@ -6,9 +6,16 @@ router.get('/',async function(req, res) {
 const db = req.app.locals.db;
 
 const sql = `
-    SELECT * FROM games
-    INNER JOIN score
-    ON score.game_id = games.id
+SELECT * FROM score, games
+WHERE
+    score IN
+    (
+        SELECT MAX(score)
+        FROM score
+		   WHERE games.id = score.game_id
+        GROUP BY game_name
+    )
+ORDER BY game_name ASC
   `;
   const result = await db.query(sql);
 

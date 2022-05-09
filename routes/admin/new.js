@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
+// var express = require('express');
+// var router = express.Router();
 
 
-router.get('/admin/games/new', (req, res) => {
+// router.get('/admin/games/new', (req, res) => {
     
-    res.render('/admin/games', {title:'Sök spel'})
-    });
+//     res.render('/admin/games', {title:'Sök spel'})
+//     });
 
-    module.exports = router;
+//     module.exports = router;

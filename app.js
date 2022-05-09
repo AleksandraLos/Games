@@ -9,10 +9,9 @@ const { Pool } = require("pg");
 
 var indexRouter = require('./routes/index');
 var gamesRouter = require('./routes/games')
-searchRouter = require('./routes/search');
+var searchRouter = require('./routes/search');
 var gamesAdminRouter = require('./routes/admin/games');
-// var newRouter = require('./routes/admin/new');
-// var newScore = require('./routes/admin/score');
+
 
 
 
