@@ -19,14 +19,14 @@ router.get('/games', async (req, res) => {
   });
 });
 
-router.get('/new', async (req, res) => {
+router.get('/games/new', async (req, res) => {
 
-  res.render('admin/new', {
+  res.render('admin/games/new', {
       title:'New Game'
   });
   });
 
-router.post("/new", async (req, res, next) => {
+router.post("/games/new", async (req, res, next) => {
 
   const {
     game_name,
@@ -79,7 +79,7 @@ async function saveGame(game, db) {
     game.release_year
   ]);
 }
-router.get("/score", async function (req, res, next) {
+router.get("/score/new", async function (req, res, next) {
 
   const db = req.app.locals.db;
 
@@ -91,12 +91,12 @@ router.get("/score", async function (req, res, next) {
 
   const games = result.rows;
 
-  res.render("admin/score", {
+  res.render("admin/score/new", {
     title: "New Score",
     games
   });
 });
-router.post("/score", async (req, res, next) => {
+router.post("/score/new", async (req, res, next) => {
   const { game_name } = req.body;
 
   const {

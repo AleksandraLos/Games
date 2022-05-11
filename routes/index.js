@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/',async function(req, res) {
-const db = req.app.locals.db;
+router.get('/', async function (req, res) {
+  const db = req.app.locals.db;
 
-const sql = `
+  const sql = `
 SELECT * FROM score, games
 WHERE
     score IN
@@ -21,8 +21,10 @@ ORDER BY game_name ASC
 
   let games = result.rows;
 
-res.render('index', { title: 'Highscore',
-games});
+  res.render('index', {
+    title: 'Highscore',
+    games
+  });
 });
 
 module.exports = router;

@@ -13,8 +13,6 @@ var searchRouter = require('./routes/search');
 var gamesAdminRouter = require('./routes/admin/games');
 
 
-
-
 var app = express();
 
 app.locals.db = new Pool({
@@ -42,8 +40,7 @@ app.use('/', indexRouter);
 app.use('/games',gamesRouter);
 app.use('/search', searchRouter);
 app.use('/admin', gamesAdminRouter);
-// app.use('/admin/games/new', newRouter);
-// app.use('/admin/score/new', newScore);
+
 
 
 // catch 404 and forward to error handler

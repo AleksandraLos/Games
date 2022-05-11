@@ -17,7 +17,17 @@ router.get('/:urlSlug', async function (req, res) {
 `;
 
     const sqlHighscore = `
-    SELECT * FROM score, games WHERE games.url_slug = $1 AND games.id = score.game_id ORDER BY game_name DESC limit 10
+    SELECT * FROM score, games
+WHERE
+    date IN
+    (
+        SELECT MAX(date)
+        FROM score
+		   WHERE games.id = score.game_id
+		   AND games.url_slug = $1
+        GROUP BY score
+    )
+ORDER BY date DESC limit 10
     `
   const result = await db.query(sql, [urlSlug]);
   const resultScore = await db.query(sqlHighscore, [urlSlug]);
