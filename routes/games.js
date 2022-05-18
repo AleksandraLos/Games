@@ -4,11 +4,10 @@ var router = express.Router();
 // GET /games/{urlSlug}, t.ex. /games/tetris
 router.get('/:urlSlug', async function (req, res) {
 
-    // hämta ut urlSlug
     const urlSlug = req.params.urlSlug;
     const db = req.app.locals.db;
 
-   
+
     const sql = `
     SELECT * FROM games
     INNER JOIN score 
@@ -18,7 +17,7 @@ router.get('/:urlSlug', async function (req, res) {
 
     const sqlHighscore = `
     SELECT * FROM score, games
-WHERE
+    WHERE
     date IN
     (
         SELECT MAX(date)
@@ -26,14 +25,14 @@ WHERE
 		   WHERE games.id = score.game_id
 		   AND games.url_slug = $1
         GROUP BY score
-    )
-ORDER BY date DESC limit 10
+    )   
+    ORDER BY date DESC limit 10
     `
-  const result = await db.query(sql, [urlSlug]);
-  const resultScore = await db.query(sqlHighscore, [urlSlug]);
+    const result = await db.query(sql, [urlSlug]);
+    const resultScore = await db.query(sqlHighscore, [urlSlug]);
 
-  const game = result.rows[0];
-  const scores = resultScore.rows;
+    const game = result.rows[0];
+    const scores = resultScore.rows;
 
 
     res.render('games/details', {

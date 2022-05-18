@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-
+//http://localhost:3000/admin/games
 router.get('/games', async (req, res) => {
 
   const db = req.app.locals.db;
@@ -19,13 +19,15 @@ router.get('/games', async (req, res) => {
   });
 });
 
+
+//GET---> http://localhost:3000/admin/games/new
 router.get('/games/new', async (req, res) => {
 
   res.render('admin/games/new', {
-      title:'New Game'
+    title: 'New Game'
   });
-  });
-
+});
+//POST---> http://localhost:3000/admin/games/new
 router.post("/games/new", async (req, res, next) => {
 
   const {
@@ -79,6 +81,8 @@ async function saveGame(game, db) {
     game.release_year
   ]);
 }
+
+//GET --->http://localhost:3000/admin/score/new
 router.get("/score/new", async function (req, res, next) {
 
   const db = req.app.locals.db;
@@ -96,6 +100,8 @@ router.get("/score/new", async function (req, res, next) {
     games
   });
 });
+
+//POST--->http://localhost:3000/admin/score/new
 router.post("/score/new", async (req, res, next) => {
   const { game_name } = req.body;
 

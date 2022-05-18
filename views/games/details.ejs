@@ -1,40 +1,45 @@
 <section>
-  <div class="mb-3">
-    <div class="row no-gutters card-body text-info">
+  <div class="mb-3 m-5">
+    <div class="row no-gutters card-body">
       <div class="col-sm-3">
-        <img
-          src="<%= game.image_url %>"
-          class="card-img-top h-100 game-card-details"
-          alt="<%= game.game_name %>"
-          style="max-width: 200px"
-          ;
-        />
+        <img src="<%= game.image_url %>" class="card-img-top h-100 game-card-details" alt="<%= game.game_name %>"
+          style="max-width: 200px" ; />
       </div>
       <div class="col-sm-9">
         <div class="card-body">
-          <h4 class="card-title"><%= game.game_name %></h4>
+          <h4 class="card-title">
+            <%= game.game_name %>
+          </h4>
           <div class="score-card-name">
-            <p><%= game.genre %>, <%= (game.release_year) %></p>
+            <p>
+              <%= game.genre %>, <%= (game.release_year) %>
+            </p>
           </div>
           <div class="score-card-name">
-            <p><%= game.description %></p>
+            <p>
+              <%= game.description %>
+            </p>
           </div>
         </div>
       </div>
     </div>
-    <h4 class="highscore-table">Highscores</h4>
     <div class="row">
     </div>
-</div>
-<ol class="list-group list-group-numbered">
-  <% scores.forEach(score => { %>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold"><%= score.game_name %></div> <%=score.player%>, <%=score.date.toLocaleDateString()%>
-      </div>
-      <span class="badge bg-primary rounded-pill"><%=score.score%></span>
-    </li>
-  <% }) %>
- 
-</ol>
+  </div>
+  <div> 
+    <h4 class=" text-center">Highscores</h4>
+    <ol class="list-group list-group-numbered m-5 ">
+      <% scores.forEach(score=> { %>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold"></div>
+            <%=score.player%>, <%=score.date.toLocaleDateString()%>
+          </div>
+          <span class="badge bg-primary rounded-pill">
+            <%=score.score%>
+          </span>
+        </li>
+        <% }) %>
+    </ol>
+  </div>
 </section>

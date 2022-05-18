@@ -1,17 +1,18 @@
 <section class=" list-group mb-4">
-  <h2 class="text-center mb-4">Highscore</h2>
-
+  <h2 class="text-center mb-4 fs-1 mt-4"> Highscore</h2>
+<div>
   <% games.forEach(game => { %>
-    <a href="/games/<%= game.url_slug %>">
-    <ol class="list-group list-group-flush list-group-numbered">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <div class="ms-2 me-auto">
+    <a href="/games/<%= game.url_slug %>" class="text-decoration-none">
+    <ol class="list-group m-4 ">
+      <li class="list-group-item d-flex justify-content-between align-items-center p-2 bg-light border shadow p-3 mb-4 bg-body rounded" style="height: 150px;">
+        <div class="ms-2 me-auto fs-5">
           <div class="fw-bold"><%=game.game_name%></div>
           <%=game.player%>, <%=game.date.toLocaleDateString()%>
         </div>
-        <span class="badge bg-primary rounded-pill"><%=game.score%></span>
+        <span class="badge bg-primary rounded-pill fs-4"><%=game.score%></span>
       </li>
     </ol>
   </a>
  <% }) %>
+</div>
 </section>
